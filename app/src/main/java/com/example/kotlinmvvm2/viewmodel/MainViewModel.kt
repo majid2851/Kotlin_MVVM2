@@ -20,7 +20,7 @@ class MainViewModel : ViewModel()
 
     fun getBooksObserver(title: String):MutableLiveData<BooksListModel>
     {
-        var booksList: MutableLiveData<BooksListModel> = MutableLiveData()
+        val booksList: MutableLiveData<BooksListModel> = MutableLiveData()
          apiProvider().getBooks(title).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object :
@@ -50,6 +50,6 @@ class MainViewModel : ViewModel()
         return RetroInstance.getRetrofit().create(RetroService::class.java)
     }
 
- 
+
 
 }
